@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Variables and Functions</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
+		<!-- Printing and PDF exports -->
+		<script>
+			const link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../common/css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+				<!-- Welcome -->
+				<section>
+					<h1>Welcome to JavaScript 101</h1>
+				</section>
+				<!-- /Welcome -->
+
+				<!-- Tone Setting -->
+				<section>
+					<h2>Hello!</h2>
+					<p>Some 'guidelines' for today</p>
+					<ul>
+						<li>I am here to support your learning</li>
+						<li>Every question is valid, ask it!</li>
+						<li>Your best resource is the person sitting next to you</li>
+						<li>Have fun! If you want to try something, try it!</li>
+					</ul>
+				</section>
+				<!-- Tone Setting -->
+
+				<!-- Overview of learning objectives -->
+				<section>
+					<h2>What You'll Be Learning About</h2>
+					<ul>
+            <li>What is and how to use JS</li>
+						<li>What are Variables and Functions</li>
+						<li>Control Flows & Arrayss</li>
+						<li>Objects</li>
+            <li>Events and Animation</li>
+            <li>DOM Manipulation</li>
+            <li>And more..</li>
+					</ul>
+				</section>
+        
+				  <section>
+            <h1>The Language of the Web</h1>
+            
+              <a title="By Ramaksoud2000 via Chris Williams (Wikipedia via GitHub logo.js) [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:JavaScript-logo.png" target="_blank"><img class="center" width="250" alt="JavaScript-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/512px-JavaScript-logo.png"></a>
+        
+              <p>Also used for plug-in scripting (Adobe/Mozilla/Chrome), game scripting, and <a href="http://en.wikipedia.org/wiki/JavaScript#Uses_outside_Web_pages">more</a>.
+              </p>
+            
+             </section>
+        
+        
+        
+        
+            <section>
+            <h1>The History of JS</h1>
+            
+              <ul>
+              <li> <b>1995:</b> At Netscape, Brendan Eich created "JavaScript".</li>
+              <li><b>1996:</b> Microsoft releases "JScript", a port for IE3.</li>
+              <li><b>1997:</b> JavaScript was standardized in the "ECMAScript" spec.</li>
+              <li><b>2005:</b> "AJAX" was coined and the web 2.0 age begins.</li>
+              <li><b>2006:</b> jQuery 1.0 was released.</li>
+              <li><b>2010:</b> Node.JS was released.</li>
+              <li><b>2015:</b> ECMAScript 6 was released.</li>
+              </ul>
+        
+              <p class="speaker-notes" style="display:none">
+              Made in 10 days. Netscape + Sun marketing move to rename.
+              Google Maps + GMail make it quite popular.
+              We’ll use parts that are solid and have been around for a long time
+              </p>
+        
+            
+            </section>
+        
+        
+        
+        
+            <section>
+            <h1>What can JS do?</h1>
+            
+        
+            <ul>
+              <li>Image switchers and lightboxes</li>
+              <li>Full featured web applications</li>
+              <li>Keep track of users with cookies</li>
+              <li>Interactive elements like tabs, sliders and accordions</li>
+              <li>Drawing and animation</li>
+            </ul>
+            <img class="center" src="http://i.imgur.com/l0Qez2d.png">
+            
+            </section>
+
+				<section>
+					<h2>Including JS in HTML - script tag</h2>
+					  <p>You can write your JS inside a <code>script</code> tag in your HTML file:</p>
+					  <pre><code data-trim>
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+      console.log("I am Javascript running on a web page!");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+			  </code></code></pre>
+				  </section>
+			  
+				  <section>
+					<h2>Including JS in HTML - external js file</h2>      
+					  <p>You can also write your JS in a separate file and reference it from your HTML file via a <code>script</code> tag:</p>
+					  <pre><code data-trim>
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+			  </code></code></pre>      
+				  </section>		
+			
+				  <section>
+					<h1>Statements</h1>
+					
+					  <p>Each instruction in JS is a "statement", like:</p>
+			
+					  <pre><code data-trim>console.log('Hello World!');</code></pre>
+			
+            <p>Try it on <a href="https://jsfiddle.net/">Jsfiddle</a>:</p>
+			
+					  <p class="speaker-notes" style="display:none;">
+						  Each separate instruction in Javascript is called a 'statement'. A 'simple' statement represents a single instruction and ends with a semi-colon. You can think of a simple statement like a sentence - the semi-colon is like a full stop and tells Javascript that your statement is finished.
+						  Let's add a simple statement to our script tags and see what happens...
+					  </p>
+			
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Variables</h1>
+					
+					  <p>Use variables to store values.</p>
+					  <p>Declare, then initialize in 2 statements:</p>
+			<pre><code data-trim>
+let x;
+x = 5;
+console.log(x);
+			</code></pre>
+			
+					  <p>Or declare and initialize in one statement:</p>
+			<pre><code data-trim>
+const y = 2;
+console.log(y);
+			</code></pre>
+			
+					  <p>Re-assign the value later:</p>
+			<pre><code data-trim>
+let x = 5;
+x = 1;
+			</code></pre>
+			
+					  <p class="speaker-notes" style="display:none;">Variables are one of the basic building blocks of Javascript. Just like 'x' in algebra, a variable in programming is a named container for a value that can change. Variables have to be 'declared' once before being used, using the 'var' keyword and the name of the variable. A variable declaration is a simple statement, so it ends with a semi-colon.
+					  Assigning an initial value to a variable is called 'initialising'. You can declare and initialise in one go, or seperately.
+					  If its not assigned, it's undefined.
+					  </p>
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Primitive Data Types</h1>
+					
+					  <p style="display:none;">Variables can store different "types" of data, like:</p>
+					  <ul>
+						<li><b>string:</b> an immutable string of characters:</li>
+			<pre><code data-trim>
+const greeting = 'Hello Kitty';
+const restaurant = "Pamela's Place";
+			</code></pre>
+						<li><b>number:</b> whole (6, -102) or floating point (5.8737): </li>
+			<pre><code data-trim>
+const myAge = 28;
+const pi = 3.14;
+			</code></pre>
+						<li><b>boolean:</b> Represents logical values true or false:</li>
+			<pre><code data-trim>
+const catsAreBest = true;
+const dogsRule = false;
+			</code></pre>
+						<li><b>undefined:</b> Represents a value that hasn't been defined.</li>
+			<pre><code data-trim>
+const notDefinedYet;
+			</code></pre>
+			
+						<li><b>null:</b> Represents an explicitly empty value.</li>
+			<pre><code data-trim>
+const goodPickupLines = null;
+			</code></pre>
+					  </ul>
+			
+					  <p class="speaker-notes" style="display:none">
+					  Variables can be populated with any one of the 'data types' available in Javascript. These are the simple ones we'll be working with today...
+					  There are also data types that cater for situations where there is no value undefined and null.
+					  Loose typing- you don't tell JS what type of data type it is, it guesses. You can use typeof to see what it thinks.
+					  http://www.daaq.net/old/javascript/index.php?page=js+data+types&parent=core+javascript
+					  </p>
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Strings</h1>
+					
+					  <p>A string holds an ordered list of characters:</p>
+			<pre><code data-trim>
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+			</code></pre>
+			
+					  <p>The <code>length</code> property reports the size of the string:</p>
+			<pre><code data-trim>
+console.log(alphabet.length); // 26
+			</code></pre>
+			
+					  <p>Each character has an index. The first character is always at index 0. The last character is always at index length-1:
+					  </p>
+			<pre><code data-trim>
+console.log(alphabet[0]); // 'a'
+console.log(alphabet[1]); // 'b'
+console.log(alphabet[2]); // 'c'
+console.log(alphabet[alphabet.length]); // undefined
+console.log(alphabet[alphabet.length-1]); // 'z'
+console.log(alphabet[alphabet.length-2]); // 'y'
+			</code></pre>
+			
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Variable Names</h1>
+					
+					  <ul>
+						<li>Begin with letters, $ or _</li>
+						<li>Only contain letters, numbers, $ and _</li>
+						<li>Case sensitive</li>
+						<li>Avoid <a href="https://developer.mozilla.org/en/JavaScript/Reference/Reserved_Words" target="_blank">reserved words</a></li>
+						<li>Choose clarity and meaning</li>
+						<li>Prefer camelCase for multipleWords (instead of under_score)</li>
+						<li>Pick a naming convention and stick with it</li>
+					  </ul>
+					<p>OK:</p>
+			<pre><code data-trim>
+const numPeople, $mainHeader, _num, _Num;
+			</code></pre>
+					<p>Not OK:</p>
+			<pre><code data-trim>
+const 2coolForSchool, soHappy!
+			</code></pre>
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Expressions</h1>
+					
+					  <p>Variables can also store the result of any "expression":</p>
+			<pre><code data-trim>
+const x = 2 + 2;
+const y = x * 3;
+			</code></pre>
+			
+			<pre><code data-trim>
+const name = 'Claire';
+const greeting = 'Hello ' + name;
+const title = 'Baroness';
+const formalGreeting = greeting + ', ' + title;
+			</code></pre>
+			
+					  <p>Variables can even store input from users using the <b>prompt</b> function.</p>
+			
+			<pre><code data-trim>
+const name = prompt("What's your name?");
+console.log('Hello ' + name);
+			</code></pre>
+			
+			
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Loose Typing</h1>
+					
+					  <p>JS figures out the type based on value, and the type can change:</p>
+			<pre><code data-trim>
+let x;
+console.log(typeof x)  // undefined
+
+x = 2;
+console.log(typeof x)  // number
+
+x = 'Hi';
+console.log(typeof x)  // string
+			</code></pre>
+			
+					  <p>A variable can only be of one type:</p>
+			<pre><code data-trim>
+const y = 2 + ' cats';
+console.log(typeof y);
+			</code></pre>
+			
+					  <p class="speaker-notes" style="display:none">coercion</p>
+			
+			
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1 class="center"><a target="_blank" href="exercises/variables.html">Exercise Time!</a></h1>
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Comments</h1>
+					
+					  <p>Comments are human-readable text ignored by the computer:</p>
+			<pre><code data-trim>
+// You can write single-line comments
+const x = 4; // Or you can comment after a statement
+
+/*
+Or you can write multi-line comments, 
+if you have something very long to say like 
+this gratuitously long description.
+*/
+			</code></pre>
+			
+					  <p class="speaker-notes" style="display:none;">
+						When to use comments
+					  </p>
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Functions</h1>
+					
+					  <p>Functions are re-usable collections of statements.</p>
+			
+					  <p>First declare the function:</p>
+			<pre><code data-trim>
+function sayMyName() {
+  console.log('Hi Christina!');
+}
+			</code></pre>
+					  <p>Then call it (as many times as you want):</p>
+			<pre><code data-trim>
+sayMyName();
+			</code></pre>
+			
+					  <p class="speaker-notes" style="display:none;">
+					  Alright! We can declare a variable and write a statement - what next? A function is collection of statements that work together to do something. In the same way a statement is like a sentence, a function is like a paragraph. Functions look like this...
+					  There is no semi-colon at the end this time. That's because a function declaration is 'compound' statement, or one that is made up of other statements contained inside curly braces.
+			
+					  Functions are not run straight away, they are stored in memory until they are called. We call a function like this...
+					  Side effects.
+					  </p>
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Beware: Circular Dependencies</h1>
+					
+			<pre><code data-trim>
+function chicken() {
+  egg();
+}
+
+function egg() {
+  chicken();
+}
+
+egg();
+			</code></pre>
+			
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Arguments</h1>
+					
+					  <p>Functions can accept any number of named arguments:</p>
+			<pre><code data-trim>
+function sayMyName(name) {
+  console.log('Hi, ' + name);
+}
+			
+sayMyName('Claire');
+sayMyName('Testy McTesterFace');
+			</code></pre>
+			
+			<pre><code data-trim>
+function addNumbers(num1, num2) {
+  const result = num1 + num2;
+  console.log(result);
+}
+			
+addNumbers(7, 21);
+addNumbers(3, 10);
+			</code></pre>
+			
+					  <p>You can also pass variables:</p>
+			<pre><code data-trim>
+const number = 10;
+addNumbers(number, 2);
+addNumbers(number, 4);
+			</code></pre>
+			
+					  <p class="speaker-notes" style="display:none;">
+					  Arguments (sometimes called parameters) are values that are passed into a function so it can do the same processing job for different data inputs. We can name our arguments in the function definition, inside the parentheses, separated by commas. We can then access them by name inside the function just like variables...
+					  In the function call, we insert our argument values in the parentheses...
+					  PIRATE JOKE!!
+					  </p>
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Return Values</h1>
+					
+					  <p>The return keyword returns a value to whoever calls the function (and exits the function):</p>
+			<pre><code data-trim>
+function addNumbers(num1, num2) {
+  const result = num1 + num2;   
+
+  return result; // Anything after this line won't be executed
+}
+			
+const sum = addNumbers(5, 2);
+			</code></pre>
+			
+					  <p>You can use function calls in expressions:</p>
+			<pre><code data-trim>
+const biggerSum = addNumbers(2, 5) + addNumbers(3, 2);
+			</code></pre>
+			
+					  <p>You can even call functions inside function calls:</p>
+			<pre><code data-trim>
+const hugeSum = addNumbers(addNumbers(5, 2), addNumbers(3, 7));
+			</code></pre>
+			
+					  <p class="speaker-notes" style="display:none;">
+					  Functions can be used to do processing tasks, and they can also return a value to the function caller. To do this we use the 'return' keyword. 'Return' also quits the function so it must always be the last statement in your function.
+					  If we assign a function call to a variable, it's value will be the result of running the function, ie whatever is 'returned'. If there is no return statement the variable's value will be 'undefined'.
+					  </p>
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Variable Scope</h1>
+					
+					  <p>JS Variables have "function scope". They are visible in the function where they're defined:</p>
+			
+					  <p>A variable with "local" scope:</p>
+			<pre><code data-trim>
+function addNumbers(num1, num2) {
+  const localResult = num1 + num2;
+  console.log("The local result is: " + localResult);
+}
+			
+addNumbers(5, 7);
+console.log(localResult);  // ReferenceError
+			</code></pre>
+			
+					  <p>A variable with "global" scope:</p>
+			<pre><code data-trim>
+let globalResult;
+
+function addNumbers(num1, num2) {
+  globalResult = num1 + num2;
+  console.log("The global result is: " + globalResult);
+}
+
+addNumbers(5, 7);
+console.log(globalResult);  // 12
+			</code></pre>
+			
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Coding Conventions: Spacing</h1>
+					
+					  <p>Use newlines between statements and use spaces to show blocks.</p>
+			
+					  <p>Bad:</p>
+			<pre><code data-trim>
+function addNumbers(num1,num2) {return num1 + num2;}
+			</code></pre>
+			
+					  <p>Good:</p>
+			<pre><code data-trim>
+function addNumbers(num1, num2) {
+  return num1 + num2; 
+}
+			</code></pre>
+					
+				  </section>
+			
+			
+			
+			
+				  <section> 
+					<h1 class="center"><a target="_blank" href="exercises/functions.html">Exercise Time!</a></h1>
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>Getting Help</h1>
+					
+					  <p>Google for questions or check <a href="https://developer.mozilla.org/en/JavaScript/Guide">Mozilla Developer Network</a> and <a href="http://www.w3schools.com/js/default.asp">W3Schools</a>.</p>
+			
+					  <p>Post problematic code on <a href="http://jsfiddle.net/">JSFiddle</a> and share the link on <a href="http://stackoverflow.com/">stackoverflow</a>.</p>
+			
+					  <img class="fill" src="http://davidwalsh.name/dw-content/jsfiddle.jpg">
+					
+				  </section>
+			
+			
+			
+			
+				  <section>
+					<h1>More exercises</h1>
+					<ul>
+					  <li><a target="_blank" href="exercises/calculator.html">The Calculator</a></li>
+					  <li><a target="_blank" href="exercises/strings.html">Strings</a></li>
+					</ul>
+				  </section>
+			</div>
+		</div>
+
+		<script src="../common/lib/js/head.min.js"></script>
+		<script src="../common/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

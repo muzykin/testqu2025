@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Control Flow</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
+		<!-- Printing and PDF exports -->
+		<script>
+			const link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../common/css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<hgroup> 
+					 <h1>Control Flow + More Data Types</h1> 
+					 <h2></h2>
+					</hgroup>
+				</section> 
+
+				   <section> 
+					<h1>Review: Terminology</h1>
+					
+					<p>In the following code, name the data types used, describe the scope for the variables, and spot the:
+			   <code>statement</code>, <code>variable</code>, <code>expression</code>,
+			   <code>operator</code>, <code>function</code>, <code>argument</code>, and <code>return value</code>.
+			   </p>
+			   
+			   <pre><code data-trim>
+function calculateTip(total) {
+  const tipPercent = 0.15;
+  return (total * tipPercent);
+}
+
+const billTotal = 10.00;
+const billTip   = calculateTip(billTotal);
+const receipt   = 'Total: ' + billTotal + ' Tip: ' + billTip;
+console.log(receipt);
+			   </code></pre>
+			   
+			   
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>The if statement</h1>
+					
+					<p>Use <code>if</code> to tell JS which statements to execute, based on a condition.</p>
+			   
+			   <pre><code data-trim>
+if (condition) {
+  // statements to execute
+}
+			   </code></pre>
+			   
+			   <pre><code data-trim>
+const x = 5;
+
+if (x > 0) {
+  console.log('x is a positive number!');
+}
+			   </code></pre>
+			   
+			   <p class="speaker-notes" style="display:none;">
+			   An 'if' statement tests a condition to see if it is true. If the condition is true, the code inside the 'if' statement is run. If the condition is not true, the 'if' statement exits without being run. A simple 'if' statement looks like this...
+			   Since the value of 'x' is 5, and 5 is greater than 0, the condition is evaluated as true and the code inside our 'if' statement is executed.
+			   </p>
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>Comparison Operators</h1>
+					
+					<p>Use these operators to compare two values for equality, inequality, or difference.</p>
+			   
+			   <pre><code data-trim>
+const myFavoriteNumber = 28;
+			   </code></pre>
+         <img src="./images/Screenshot 2023-10-25 170407.png" style="width: 400px;">
+      
+			   
+			   <p><b>Common mistake</b>: </br> Do not confuse <code>=</code> (the assignment operator) with <code>==</code>.</p>
+			   
+			   <p class="speaker-notes" style="display:none;">
+			   https://developer.mozilla.org/en/JavaScript/Guide/Expressions_and_Operators#Comparison_operators
+			   A comparison operator compares its operands and returns a logical value based on whether the comparison is true. The operands can be numerical, string, logical, or object values. Strings are compared based on standard lexicographical ordering, using Unicode values. In most cases, if the two operands are not of the same type, JavaScript attempts to convert the operands to an appropriate type for the comparison. (The sole exceptions to this rule are === and !==, which perform "strict" equality and inequality and which do not attempt to convert the operands to compatible types before checking equality.) This generally results in a numerical comparison being performed. The following table describes the comparison operators, assuming the following code:
+			   Why can't we just use '='?
+			   The equals sign is always an 'assignment operator' in Javascript. That means that whenever Javascript encounters a '=' it will try to assign the value on the right side of the '=' to the entity on the left side. So in the following example, the value of 'x' is overwritten...
+			   
+			   const x = 5;
+			   if(x = 6){
+				 console.log(x); //x will equal 6
+			   }
+			   </p>
+					
+				   </section>
+				   
+				   <section> 
+					<h1>Logical Operators</h1>
+					
+					<p>These are typically used in combination with the comparison operators:</p>
+			   <pre><code data-trim>
+const posNum = 4;
+const negNum = -2;
+			   </code></pre>
+			   <img src="./images/Screenshot 2023-10-25 170445.png" style="width: 400px;">
+			   
+			   <p>When combining together multiple conditions, use parentheses to group:</p>
+			   <pre><code data-trim>
+const myAge = 28; 
+if ((myAge &gt;= 0 && myAge &lt; 3)  || myAge &gt; 90) {
+  console.log('You\'re not quite in your peak.'); 
+}
+			   </code></pre>
+			   
+			   <p class="speaker-notes" style="display:none;">
+			   Logical operators are typically used with Boolean (logical) values; when they are, they return a Boolean value. However, the && and || operators actually return the value of one of the specified operands, so if these operators are used with non-Boolean values, they may return a non-Boolean value. The logical operators are described in the following table.
+			   https://developer.mozilla.org/en/JavaScript/Guide/Expressions_and_Operators#Logical_operators
+			   The 'and' (&&) and 'or' (||) operators allow us to test several conditions in one 'if' statement. To execute the same code if either 'x' or 'y' is 5 we can use the 'or' operator...
+			   
+			   if (x === 5 || y === 5) {
+				 //execute if the value of x is 5 or the value of y is 5
+			   }
+			   
+			   If we want to execute some code only if both 'x' and 'y' have the value 5, we use the 'and' operator...
+			   
+			   if (x === 5 && y === 5) {
+				 //execute if the value of x is 5 and the value of y is 5
+			   }
+			   
+			   It is important to remember that in both scenarios conditions are tested left to right, and only continue testing if needed.
+			   </p>
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>Truthy vs Falsey</h1>
+					
+					<p>If you don't use a comparison or logical operator, JS tries to figure out if the value is "truth-y".</p>
+			   <pre><code data-trim>
+const catsRule = true; 
+if (catsRule) {
+  console.log('Yay cats!');
+}
+			   </code></pre>
+			   
+			   <p>Values that are "false-y": <code>false</code>, the empty string (<code>""</code>), the number <code>0</code>, <code>undefined</code>, <code>null</code>.</p>
+			   <pre><code data-trim>
+const name = '';
+if (name) {
+  console.log('Hello, ' + name);
+}
+
+const points = 0;
+if (points) {
+  console.log('You have ' + points + ' points');
+}
+
+const firstName;
+if (firstName) {
+  console.log('Your name is ' + firstName);
+}
+			   </code></pre>
+			   
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>Short-Circuit Evaluation</h1>
+					
+					<p>JS evaluates logical operators from left to right and stops evaluating as soon as it knows the answer.
+			   </p>
+			   <p>
+			   <code>(false &&</code> anything)  => false <br>
+			   <code>(true ||</code> anything) => true
+			   </p>
+			   
+			   <pre><code data-trim>
+const nominator = 5;
+const denominator = 0;
+
+if (denominator != 0 &amp;&amp; (nominator/denominator > 0)) {
+  console.log('Thats a valid, positive fraction');
+}
+			   </code></pre>
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>The if/else statement</h1>
+					
+					<p>Use <code>else</code> to give JS an alternative statement to execute.
+			   </p>
+			   
+			   <pre><code data-trim>
+const age = 28;
+
+if (age > 16) {
+ console.log('Yay, you can drive!');
+} else {
+ console.log(
+  'Sorry, but you have ' + (16 - age) + ' y til you can drive.'
+  );
+}
+			   </code></pre>
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>The if/else if/else statement</h1>
+					
+					<p>You can use <code>else if</code> if you have multiple exclusive conditions to check:</p>
+			   
+			   <pre><code data-trim>
+const age = 20;
+
+if (age >= 35) {
+  console.log('You can vote AND hold any place in government!');
+} else if (age >= 25) {
+  console.log('You can vote AND run for the Senate!');
+} else if (age >= 18) {
+  console.log('You can vote!');
+} else {
+  console.log('You have no voice in government!');
+}
+			   </code></pre>
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1 class="center"><a target="_blank" href="exercises/ifelse.html">Exercise Time!</a></h1>
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>The while loop</h1>
+					
+					<p>The <code>while</code> loop tells JS to repeat statements until a condition is true:</p>
+			   
+			   <pre><code data-trim>
+while (expression) {
+  // statements to repeat 
+}
+			   </code></pre>
+			   
+			   <pre><code data-trim>
+let x = 0;
+
+while (x < 5) {
+  console.log(x);
+  x = x + 1;
+}
+			   </code></pre>
+			   
+			   <p>
+			   <b>Beware:</b> It's easy to accidentally cause an "infinite loop." 
+			   </p>
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>The for loop</h1>
+					
+					<p>The <code>for</code> loop is another way of repeating statements, more specialized than <code>while</code>:
+			   </p>
+			   
+			   <pre><code data-trim>
+for (initialize; condition; update) {
+  // statements to repeat
+}
+			   </code></pre>
+			   
+			   <pre><code data-trim>
+for (let i = 0; i < 5; i = i + 1) {
+  console.log(i);
+}
+			   </code></pre>
+			   
+			   <p style="display:none">We use i, j, k, etc. Harder to do an infinite loop, but still possible.</p>
+			   
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>The break statement</h1>
+					
+					<p>To prematurely exit a loop, use the <code>break</code> statement:</p>
+			   
+			   <pre><code data-trim>
+for (const current = 100; current < 200; current++) {
+  console.log('Testing ' + current);
+
+  if (current % 7 == 0) {
+    console.log('Found it! ' + current);
+
+    break;
+  }
+}
+			   </code></pre>
+			   
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1 class="center"><a target="_blank" href="exercises/forloops.html">Exercise Time!</a></h1>
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>The array data type</h1>
+					
+					<p>An array is a type of data-type that holds an ordered list of values, of any type:
+			   </p>
+			   <pre><code data-trim>
+const arrayName = [element0, element1, ...];
+			   </code></pre>
+			   <pre><code data-trim>
+const rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue'];
+const raceWinners = [33, 72, 64];
+const myFavoriteThings = ['Broccoli', 60481, 'Love Actually'];
+			   </code></pre>
+			   <p>The <code>length</code> property reports the size of the array:</p>
+			   <pre><code data-trim>
+console.log(rainbowColors.length);
+			   </code></pre>
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>Array access</h1>
+					
+					<p>You can access items with "bracket notation". The index starts at 0.</p>
+			   <pre><code data-trim>
+const arrayItem = arrayName[indexNum];
+			   </code></pre>
+			   <pre><code data-trim>
+const rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue'];
+const firstColor = rainbowColors[0];
+const lastColor = rainbowColors[6];
+			   </code></pre>
+			   
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>Changing arrays</h1>
+					
+					<p>You can also use bracket notation to change the item in an array:</p>
+			   <pre><code data-trim>
+let myFavoriteThings = ['Broccoli', 60481, 'Love Actually'];
+myFavoriteThings[0] = 'Celery Root';
+			   </code></pre>
+			   <p>Or to add to an array:</p>
+			   <pre><code data-trim>
+myFavoriteThings[4] = 'Playgrounds';
+			   </code></pre>
+			   <p>You can also use the <code>push</code> method:</p>
+			   <pre><code data-trim>
+myFavoriteThings.push('Dancing');
+			   </code></pre>
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1>Using for loops with arrays and strings</h1>
+					
+					<p>Use a for loop to easily process each item in an array:</p>
+			   <pre><code data-trim>
+const rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue'];
+
+for (let i = 0; i < rainbowColors.length; i++) {
+  console.log(rainbowColors[i]);
+}
+			   </code></pre>
+					<p>or a string:</p>
+			   <pre><code data-trim>
+const rainbowColorsLetters = 'ROYGBIV';
+
+for (let i = 0; i < rainbowColorsLetters.length; i++) {
+  console.log(rainbowColorsLetters[i]);
+}
+			   </code></pre>
+			   
+					
+				   </section>
+				   
+				  
+				   
+				   
+				   
+				   <section> 
+					<h1 class="center"><a target="_blank" href="exercises/arrays.html">Exercise Time!</a></h1>
+				   </section>
+				  
+			</div>
+		</div>
+
+		<script src="../common/lib/js/head.min.js"></script>
+		<script src="../common/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
