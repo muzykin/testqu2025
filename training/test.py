@@ -16,7 +16,7 @@ class TestWikipedia(unittest.TestCase):
 
         search_box = driver.find_element(By.NAME, "search")
         search_box.clear()
-        search_box.send_keys("Selenium (software)")
+        search_box.send_keys("Selenium")
         search_box.send_keys(Keys.RETURN)
 
         time.sleep(3)
