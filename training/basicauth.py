@@ -56,6 +56,7 @@ class TestBasicAuthLogin(unittest.TestCase):
         self.assertIn("Not authorized", message)
         
     def tearDown(self):
+        self.driver.save_screenshot("C:/ProgramData/Jenkins/.jenkins/workspace/testbasicauth/basic_auth_test.png")
         self.driver.quit()
 
 if __name__ == '__main__':
